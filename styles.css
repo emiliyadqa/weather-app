@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  background-image: linear-gradient(to bottom, #09203f 0%, #537895 100%);
+  min-height: 100vh;
+  color: rgb(241, 255, 255);
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(241, 255, 255);
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: 900;
+}
+
+.block-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.block-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 70vh;
+}
+
+.block-footer {
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Header Section */
+.header__logo {
+  display: flex;
+}
+
+.header__search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a365b82;
+  border-radius: 20px;
+  padding: 1rem 3rem 1rem 3rem;
+}
+
+.header__search * {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  color: rgb(241, 255, 255);
+}
+
+.search__input {
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+}
+
+.search__input::placeholder {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  color: rgba(241, 255, 255, 0.6);
+}
+
+.search__btn {
+  cursor: pointer;
+}
+
+.switch {
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 0.5rem 2rem;
+  border: 2px solid rgba(241, 255, 255, 0.6);
+  border-radius: 20px;
+  display: block;
+}
+
+/* Weather Section */
+.section-title {
+  grid-area: header;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title h1 {
+  font-size: 4rem;
+  font-weight: 900;
+}
+.section-title p {
+  font-weight: 900;
+  color: rgba(241, 255, 255, 0.6);
+}
+
+.section-weather {
+  grid-area: weather;
+}
+
+.section-details {
+  grid-area: details;
+}
+.weather__temp {
+  font-size: 5rem;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+}
+
+.weather__temp img {
+  width: 7rem;
+  height: 7rem;
+  margin-right: 1rem;
+}
+
+.weather__conditions {
+  color: rgba(241, 255, 255, 0.6);
+}
+
+.weather__conditions p {
+  text-align: right;
+}
+
+.weather__details {
+  text-align: left;
+  padding: 1rem;
+  text-align: left;
+}
+
+.weather__details p:first-of-type {
+  color: rgba(241, 255, 255, 0.7);
+  font-weight: 900;
+  font-size: 1.7rem;
+  padding-bottom: 0.5rem;
+}
+
+.section-daily-forecast {
+  grid-area: daily;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+/* List */
+
+.daily-forecast__list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.daily-forecast__item {
+  border-bottom: 1px solid rgba(241, 255, 255, 0.7);
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.4rem;
+  display: flex;
+  text-align: left;
+}
+
+.daily-forecast__item span {
+  display: block;
+  width: 140px;
+}
+
+/* Grid */
+
+.grid-2x3 {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(min-content, max-content));
+  grid-template-columns: auto 1fr;
+  gap: 1rem 4rem;
+  justify-items: center;
+  align-items: center;
+  align-self: center;
+  grid-template-areas:
+    "header header"
+    "weather details"
+    " daily daily";
+}
+
+.grid-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 55%;
+  }
+
+  .block-header,
+  .block-main {
+    padding: 1rem;
+  }
+
+  .block-main {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .section-title h1 {
+    font-size: 3rem;
+  }
+
+  .weather__temp {
+    font-size: 4rem;
+  }
+  .daily-forecast__item span:nth-child(1) {
+    width: 140px;
+  }
+
+  .daily-forecast__item span {
+    width: 70px;
+  }
+  .weather__conditions p {
+    text-align: center;
+  }
+  .grid-2x3 {
+    grid-template-areas:
+      "header"
+      "weather"
+      "details"
+      "daily";
+    gap: 2rem 0;
+  }
+
+  .block-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header__search {
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin: 2rem 0;
+  }
+}
